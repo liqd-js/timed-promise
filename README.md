@@ -47,7 +47,7 @@ Standard JavaScript [`Promises`](https://developer.mozilla.org/en-US/docs/Web/Ja
 ## Installing
 
 ```
-npm install --save liqd-timed-promise
+npm i @liqd-js/timed-promise
 ```
 or include script for a browser release
 ```html
