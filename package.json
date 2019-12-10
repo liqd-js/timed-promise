@@ -1,0 +1,32 @@
+{
+  "name": "@liqd-js/timed-promise",
+  "description": "Chainable Promises with timeouts",
+  "version": "1.0.0",
+  "author": "radixxko",
+  "license": "MIT",
+  "main": "lib/timed_promise.js",
+  "files": [
+    "lib/"
+  ],
+  "scripts": {
+    "test": "nyc mocha",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/liqd-js/timed-promise.git"
+  },
+  "keywords": [
+    "promise",
+    "timeout",
+    "timed",
+    "liqd-js",
+    "liqd"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "coveralls": "^3.0.4",
+    "mocha": "^5.2.0",
+    "nyc": "^14.1.1"
+  }
+}
