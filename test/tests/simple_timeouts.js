@@ -86,3 +86,27 @@ it( 'TimedPromise should be timeouted and catches exception with lowest timeout'
   assert.ok( 950 < elapsed && elapsed < 1050, 'Invalid TimedPromise timeout' );
   assert.equal( result, 'Catched-timeout', 'TimedPromise not catched' );
 });
+
+
+it( 'TimedPromise should settle', async() =>
+{
+  let start = (new Date()).getTime();
+
+  let promise = new TimedPromise( ( resolve, reject, timeout ) =>
+  {
+    setTimeout( resolve, 1000 );
+  })
+  .timeout( 5000 )
+  .timeout( 1000 )
+  .timeout( 2000 )
+  .catch( error => 'Catched-'+error );
+
+  assert.equal( promise.settled, false, 'TimedPromise settled' );
+
+  let result = await promise;
+  let elapsed = (new Date()).getTime() - start;
+
+  assert.ok( 950 < elapsed && elapsed < 1050, 'Invalid TimedPromise timeout' );
+  assert.equal( result, 'Catched-timeout', 'TimedPromise not catched' );
+  assert.equal( promise.settled, true, 'TimedPromise not settled' );
+});

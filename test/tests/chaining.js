@@ -18,6 +18,8 @@ it( 'TimedPromise should be resolved', async() =>
     .then( v => v + '-then_2' )
     .catch( e => e ),
   'Resolved-then_1-then_2', 'TimedPromise not Resolved' );
+
+  assert.equal( promise.settled, true, 'TimedPromise not Settled' );
 });
 
 it( 'TimedPromise should be rejected', async() =>
@@ -34,4 +36,6 @@ it( 'TimedPromise should be rejected', async() =>
     .then( v => v + '-then_2' )
     .catch( e => e ),
   'Rejected-then_2', 'TimedPromise not Rejected' );
+
+  assert.equal( promise.settled, true, 'TimedPromise not Settled' );
 });
